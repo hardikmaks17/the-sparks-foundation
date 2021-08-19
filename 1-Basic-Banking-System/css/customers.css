@@ -1,0 +1,10 @@
+.transfer-btn {
+	padding: 0.1em 1em;
+	border-radius: 2.5px;
+	transition: 0.5s;
+	cursor:pointer;
+	border: 0;
+}
+.transfer-btn:hover {
+	background-color:#00ff00;
+}
