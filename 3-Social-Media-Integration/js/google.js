@@ -16,7 +16,7 @@ function onSignIn(googleUser) {
     // gEmail.innerText = profile.getEmail();
     // let gImage = document.getElementById('g-image');
     // gImage.src = `${profile.getImageUrl()}`;
-    
+
     gDisplay();
 }
 
@@ -31,6 +31,7 @@ function signOut() {
 // display
 
 function gDisplay() {
+    var profile = googleUser.getBasicProfile();
     let profileBody = document.getElementById('profile-body');
     html = `
     <div class="card mb-3" style="max-width: 540px;">
