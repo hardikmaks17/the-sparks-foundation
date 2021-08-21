@@ -2,6 +2,7 @@ console.log("Linked: google.js");
 
 // signin
 function onSignIn(googleUser) {
+    window.location.replace("https://hardikmaks17.github.io/the-sparks-foundation/3-Social-Media-Integration/google.html");
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
@@ -35,7 +36,6 @@ function onSignIn(googleUser) {
     </div>
     `;
     profileBody.innerHTML = html;
-
 }
 
 // signout
