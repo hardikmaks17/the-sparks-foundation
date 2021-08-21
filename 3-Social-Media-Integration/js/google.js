@@ -9,15 +9,6 @@ function onSignIn(googleUser) {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    // let gId = document.getElementById('g-id');
-    // gId.innerText = profile.getId();
-    // let gName = document.getElementById('g-name');
-    // gName.innerText = profile.getName();
-    // let gEmail = document.getElementById('g-email');
-    // gEmail.innerText = profile.getEmail();
-    // let gImage = document.getElementById('g-image');
-    // gImage.src = `${profile.getImageUrl()}`;
-
     let profileBody = document.getElementById('profile-body');
     html = `
     <div class="card mb-3" style="max-width: 540px;">
