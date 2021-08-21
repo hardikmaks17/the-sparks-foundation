@@ -17,21 +17,6 @@ function onSignIn(googleUser) {
     // let gImage = document.getElementById('g-image');
     // gImage.src = `${profile.getImageUrl()}`;
 
-    gDisplay();
-}
-
-// signout
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-    });
-}
-
-// display
-
-function gDisplay() {
-    var profile = googleUser.getBasicProfile();
     let profileBody = document.getElementById('profile-body');
     html = `
     <div class="card mb-3" style="max-width: 540px;">
@@ -50,4 +35,13 @@ function gDisplay() {
     </div>
     `;
     profileBody.innerHTML = html;
+
+}
+
+// signout
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
 }
