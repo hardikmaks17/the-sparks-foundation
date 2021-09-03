@@ -22,16 +22,16 @@
 
 <body class="bg-dark">
 
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="JbfsFIcn"></script>
+
 	<!-- Begin: Header Part -->
 	<header>
 		<nav style="background-color:#000" class="navbar sticky-top navbar-expand-md navbar-dark">
 			<a class="navbar-brand" href="index.html">Minee Social</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-					<!-- <li class="nav-item"><a class="nav-link" href="index.html" onclick="signOut();">Sign out</a></li> -->
-				</ul>
+				<ul class="navbar-nav ml-auto" id="navbar"></ul>
 			</div>
 		</nav>
 	</header>
@@ -45,9 +45,11 @@
 					<h1 class="title">Your Social Profile</h1>
 					<q class="tagline">Sign in through one of OAuth to fetch your profile details</q>
 				</div>
-				<div class="m-container-item">
-					<div class="g-signin2" onclick="onSignIn()" data-width="240" data-longtitle="true"></div>
+				<div class="m-container-item" id="profile-body">
+					<div class="g-signin2 my-2" id="g-signinbtn" data-onsuccess="onSignIn" data-width="240" data-height="30" data-longtitle="true"></div>
+					<div class="fb-login-button my-2" id="f-signinbtn" data-width="240" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
 				</div>
+				<div id="status" style="color: white;"></div>
 			</div>
 		</div>
 	</main>
@@ -65,6 +67,7 @@
 
 	<!-- External JS Files -->
 	<script src="js/google.js"></script>
+	<script src="js/facebook.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </body>
