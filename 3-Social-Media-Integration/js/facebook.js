@@ -5,19 +5,17 @@ function statusChangeCallback(response) {  // Called with the results from FB.ge
     console.log(response);                   // The current login status of the person.
     if (response.status === 'connected') {   // Logged into your webpage and Facebook.
         testAPI();
-    } else {                                 // Not logged into your webpage or we are unable to tell.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into this webpage.';
+    } 
+    else {                                 // Not logged into your webpage or we are unable to tell.
+        document.getElementById('status').innerHTML = 'Please log ' + 'into this webpage.';
     }
 }
-
 
 function checkLoginState() {               // Called when a person is finished with the Login Button.
     FB.getLoginStatus(function (response) {   // See the onlogin handler
         statusChangeCallback(response);
     });
 }
-
 
 window.fbAsyncInit = function () {
     FB.init({
@@ -45,15 +43,16 @@ function testAPI() {                      // Testing Graph API after login.  See
         // creating user profile for DOM
         let profileBody = document.getElementById('profile-body');
         let contentDiv = document.createElement('div');
-        contentDiv.id = "contentDiv";
+        contentDiv.id = "FcontentDiv";
+        contentDiv.className = "contentDiv";
         html = `
-        <div class="card mb-3">
+        <div class="card my-3 p-2">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="https://via.placeholder.com/150" class="img-fluid rounded-start g-image" alt="">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body text-left mt-4">
+                    <div class="card-body text-left mt-4 p-1">
                         <p class="card-title" id="g-name"><b>Name :</b> ${response.name}</p>
                         <p class="card-text" id="g-email"><b>Email :</b> ${(response.name.toLowerCase()).replace(/\s+/g, '')}@gmail.com</p>
                         <p class="card-text"><small class="text-muted" id="g-id"><b>Facebook ID :</b> ${response.id}</small></p>
@@ -70,7 +69,7 @@ function testAPI() {                      // Testing Graph API after login.  See
         let navlink = document.createElement('li');
         navlink.id = "f-signoutbtn";
         navlink.className = "nav-item";
-        linkContent = `<a class="nav-link" href="index.html" onclick="fblogout();">FB Sign out</a>`;
+        linkContent = `<a class="nav-link" href="index.html" onclick="fblogout();">FB | Sign out</a>`;
         navlink.innerHTML = linkContent;
         navbar.appendChild(navlink);
 
@@ -87,7 +86,7 @@ function fblogout() {
         window.location.href = "index.html";
 
         // removing user profile from DOM
-        let contentDiv = document.getElementById('contentDiv');
+        let contentDiv = document.getElementById('FcontentDiv');
         contentDiv.remove();
         
         // removing signout btn
